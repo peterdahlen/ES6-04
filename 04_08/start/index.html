@@ -4,7 +4,36 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.29/browser.js"></script>
 	<script type="text/babel">
 
+		var title = 'ES6';
+		console.log(typeof title[Symbol.iterator]);
 
+		var iterateIt = title[Symbol.iterator]();
+		console.log(iterateIt.next());
+		console.log(iterateIt.next());
+		console.log(iterateIt.next());
+		console.log(iterateIt.next());
+
+		function tableReady(arr) {
+			var nextIndex = 0;
+			return {
+				next() {
+					if(nextIndex < arr.length) {
+						return {value: arr.shift(), done: false}
+					} else {
+						return {done: true}
+					}
+				}
+			}
+		}
+
+		var waitingList = ['Annika', 'Peter', 'Pella'];
+		var iterateList = tableReady(waitingList);
+
+		console.log(`${iterateList.next().value}, ert bord är ledigt`);
+		console.log(`${iterateList.next().value}, ert bord är ledigt`);
+		console.log(`${iterateList.next().value}, ert bord är ledigt`);
+		console.log(`Är detta klart? ${iterateList.next().done}`);
+								
 	</script>
 	<title>Iterators</title>
 </head>
