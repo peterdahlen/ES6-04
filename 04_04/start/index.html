@@ -4,9 +4,18 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.29/browser.js"></script>
 	<script type="text/babel">
 		
-		
+		var person = {
+			first: "David ", 
+			actions: ['joggar', 'simma', 'åka skidor'],
+			printActions() {
+				this.actions.forEach(actions => {
+					var str = this.first + "gillar att " + actions;
+					console.log(str);
+				});
+			}
+		};
+		person.printActions();
 
-	
 	</script>
 	<title>Arrow Functions and 'this'</title>
 </head>
